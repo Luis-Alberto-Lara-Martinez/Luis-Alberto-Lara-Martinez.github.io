@@ -1,0 +1,56 @@
+/* Fuente de Google */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFFFF; /* Color de fondo blanco */
+    color: #007BFF; /* Color principal azul */
+}
+
+.contenedor-login {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #007BFF;
+    border-radius: 10px;
+    background-color: #FFFFFF; /* Fondo del contenedor blanco */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-login h2 {
+    margin-bottom: 20px;
+    color: #007BFF; /* Color del texto principal */
+}
+
+.contenedor-login input[type="text"],
+.contenedor-login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+}
+
+.contenedor-login button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF; /* Botón azul */
+    color: #FFFFFF; /* Texto del botón blanco */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.contenedor-login button:hover {
+    background-color: #0056b3; /* Color del botón al pasar el ratón */
+}
