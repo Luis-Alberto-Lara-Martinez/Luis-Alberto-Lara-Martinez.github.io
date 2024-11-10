@@ -2,55 +2,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: white;
 }
 
 body {
+    background-image: url("../img/fondoLogin.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #FFFFFF; /* Color de fondo blanco */
-    color: #007BFF; /* Color principal azul */
 }
 
-.contenedor-login {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #007BFF;
+.contenedor {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 50px;
     border-radius: 10px;
-    background-color: #FFFFFF; /* Fondo del contenedor blanco */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.contenedor-login h2 {
-    margin-bottom: 20px;
-    color: #007BFF; /* Color del texto principal */
+img {
+    width: 100px;
+    margin: 20px 0 10px 0;
 }
 
-.contenedor-login input[type="text"],
-.contenedor-login input[type="password"] {
+input,
+label {
+    text-align: left;
+    margin: 5px 0;
+}
+
+label {
+    display: block;
+}
+
+input {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #007BFF;
-    border-radius: 5px;
-}
-
-.contenedor-login button {
-    width: 100%;
-    padding: 10px;
+    color: black;
     border: none;
-    border-radius: 5px;
-    background-color: #007BFF; /* Botón azul */
-    color: #FFFFFF; /* Texto del botón blanco */
-    font-size: 16px;
-    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px 10px;
 }
 
-.contenedor-login button:hover {
-    background-color: #0056b3; /* Color del botón al pasar el ratón */
+button {
+    background-color: #ff6600;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #d65600;
+}
+
+
+
+.register-link a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    color: #e65c00;
+    text-decoration: underline;
 }
