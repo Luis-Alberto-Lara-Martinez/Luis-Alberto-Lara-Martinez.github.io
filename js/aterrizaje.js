@@ -1,61 +1,12 @@
-function cargarUsuarios() {
-    let listaUsuarios = [];
-    listaUsuarios.push({
-        "id": 1,
-        "nombre": "Juan",
-        "apellidos": "Pérez",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "usuario": "juanito1",
-        "contrasena": "clave1"
-    });
-    listaUsuarios.push({
-        "id": 2,
-        "nombre": "Juan",
-        "apellidos": "Pérez",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "fechaDeRegistro": "2023-01-01",
-        "usuario": "juanito2",
-        "contrasena": "clave2"
-    });
-    listaUsuarios.push({
-        "id": 3,
-        "nombre": "Juan",
-        "apellidos": "Pérez",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "fechaDeRegistro": "2023-01-01",
-        "usuario": "juanito3",
-        "contrasena": "clave3"
-    });
-    listaUsuarios.push({
-        "id": 4,
-        "nombre": "Juan",
-        "apellidos": "Pérez",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "fechaDeRegistro": "2023-01-01",
-        "usuario": "juanito4",
-        "contrasena": "clave4"
-    });
-    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
-}
-
-function comprobarFormulario() {
+function comprobarExistenciaUsuario() {
     let usuarioBuscado = document.forms[0].querySelectorAll("input")[0].value.trim();
     let contrasenaBuscada = document.forms[0].querySelectorAll("input")[1].value.trim();
 
     let existeUsuario = false;
-    let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios"));
 
-    listaUsuarios.forEach(usuario => {
-        if (usuario.usuario == usuarioBuscado && usuario.contrasena == contrasenaBuscada) {
-            localStorage.setItem("usuarioActual", usuarioBuscado);
+    listaClientes.forEach(cliente => {
+        if (cliente.usuario == usuarioBuscado && cliente.contrasena == contrasenaBuscada) {
+            localStorage.setItem("usuarioID", cliente.id);
             existeUsuario = true;
         }
     });
@@ -67,11 +18,125 @@ function comprobarFormulario() {
     }
 }
 
+function validacionNuevoUsuario() {
+
+}
+
 function crearNuevoUsuario() {
-    document.body.innerHTML = "nuevo usuario";
+    document.body.innerHTML = "";
+
+    let contenedor = document.createElement("div");
+    contenedor.className = "contenedor";
+    document.body.appendChild(contenedor);
+
+    let titulo = document.createElement("h1");
+    titulo.innerHTML = "¡Bienvenido!";
+    contenedor.appendChild(titulo);
+
+    let logo = document.createElement("img");
+    logo.src = "../img/favicon.png";
+    contenedor.appendChild(logo);
+
+    let formulario = document.createElement("form");
+    formulario.action = "inicio.html";
+    formulario.method = "get";
+    contenedor.appendChild(formulario);
+
+    let labelNombre = document.createElement("label");
+    labelNombre.htmlFor = "nombre";
+    labelNombre.innerHTML = "Nombre";
+    formulario.appendChild(labelNombre);
+
+    let inputNombre = document.createElement("input");
+    inputNombre.type = "text";
+    inputNombre.id = "nombre";
+    formulario.appendChild(inputNombre);
+
+    let labelApellidos = document.createElement("label");
+    labelApellidos.htmlFor = "apellidos";
+    labelApellidos.innerHTML = "Apellidos";
+    formulario.appendChild(labelApellidos);
+
+    let inputApellidos = document.createElement("input");
+    inputApellidos.type = "text";
+    inputApellidos.id = "apellidos";
+    formulario.appendChild(inputApellidos);
+
+    let labelEmail = document.createElement("label");
+    labelEmail.htmlFor = "email";
+    labelEmail.innerHTML = "Email";
+    formulario.appendChild(labelEmail);
+
+    let inputEmail = document.createElement("input");
+    inputEmail.type = "email";
+    inputEmail.id = "email";
+    formulario.appendChild(inputEmail);
+
+    let labelTelefono = document.createElement("label");
+    labelTelefono.htmlFor = "telefono";
+    labelTelefono.innerHTML = "Teléfono";
+    formulario.appendChild(labelTelefono);
+
+    let inputTelefono = document.createElement("input");
+    inputTelefono.type = "tel";
+    inputTelefono.id = "telefono";
+    formulario.appendChild(inputTelefono);
+
+    let labelDireccion = document.createElement("label");
+    labelDireccion.htmlFor = "direccion";
+    labelDireccion.innerHTML = "Dirección";
+    formulario.appendChild(labelDireccion);
+
+    let inputDireccion = document.createElement("input");
+    inputDireccion.type = "text";
+    inputDireccion.id = "direccion";
+    formulario.appendChild(inputDireccion);
+
+    let labelUsuario = document.createElement("label");
+    labelUsuario.htmlFor = "usuario";
+    labelUsuario.innerHTML = "Usuario";
+    formulario.appendChild(labelUsuario);
+
+    let inputUsuario = document.createElement("input");
+    inputUsuario.type = "text";
+    inputUsuario.id = "usuario";
+    formulario.appendChild(inputUsuario);
+
+    let labelContrasena = document.createElement("label");
+    labelContrasena.htmlFor = "contrasena";
+    labelContrasena.innerHTML = "Contraseña";
+    formulario.appendChild(labelContrasena);
+
+    let inputContrasena = document.createElement("input");
+    inputContrasena.type = "password";
+    inputContrasena.id = "contrasena";
+    formulario.appendChild(inputContrasena);
+
+    let parrafoError = document.createElement("p");
+    parrafoError.innerHTML = "Error, usuario y/o contraseña no válidos";
+    parrafoError.className = "oculto";
+    formulario.appendChild(parrafoError);
+
+    let botonEntrar = document.createElement("button");
+    botonEntrar.type = "button";
+    botonEntrar.innerHTML = "Crear";
+    botonEntrar.addEventListener("click", validacionNuevoUsuario);
+    formulario.appendChild(botonEntrar);
+
+    let parrafoNoRegistrado = document.createElement("p");
+    parrafoNoRegistrado.innerHTML = "¿Tienes cuenta? Inicia sesión ";
+    formulario.appendChild(parrafoNoRegistrado);
+
+    let enlaceNuevoRegistro = document.createElement("a");
+    enlaceNuevoRegistro.href = "#";
+    enlaceNuevoRegistro.innerHTML = "aquí";
+    enlaceNuevoRegistro.addEventListener("click", cargarFormulario);
+    parrafoNoRegistrado.appendChild(enlaceNuevoRegistro);
 }
 
 function cargarFormulario() {
+    document.body.innerHTML = "";
+
     let contenedor = document.createElement("div");
     contenedor.className = "contenedor";
     document.body.appendChild(contenedor);
@@ -86,7 +151,7 @@ function cargarFormulario() {
 
     let formulario = document.createElement("form");
     formulario.action = "inicio.html";
-    formulario.method = "post";
+    formulario.method = "get";
     contenedor.appendChild(formulario);
 
     let labelNombre = document.createElement("label");
@@ -117,7 +182,7 @@ function cargarFormulario() {
     let botonEntrar = document.createElement("button");
     botonEntrar.type = "button";
     botonEntrar.innerHTML = "Acceder";
-    botonEntrar.addEventListener("click", comprobarFormulario);
+    botonEntrar.addEventListener("click", comprobarExistenciaUsuario);
     formulario.appendChild(botonEntrar);
 
     let parrafoNoRegistrado = document.createElement("p");

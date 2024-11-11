@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "email": "juan1@gmail.com",
+        "telefono": 123456789,
+        "direccion": "Calle Falsa 12 1A",
+        "usuario": "juanito1",
+        "contrasena": "clave1"
+    },
+    {
+        "id": 2,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "email": "juan1@gmail.com",
+        "telefono": 123456789,
+        "direccion": "Calle Falsa 12 1A",
+        "fechaDeRegistro": "2023-01-01",
+        "usuario": "juanito2",
+        "contrasena": "clave2"
+    },
+    {
+        "id": 3,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "email": "juan1@gmail.com",
+        "telefono": 123456789,
+        "direccion": "Calle Falsa 12 1A",
+        "fechaDeRegistro": "2023-01-01",
+        "usuario": "juanito3",
+        "contrasena": "clave3"
+    },
+    {
+        "id": 4,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "email": "juan1@gmail.com",
+        "telefono": 123456789,
+        "direccion": "Calle Falsa 12 1A",
+        "fechaDeRegistro": "2023-01-01",
+        "usuario": "juanito4",
+        "contrasena": "clave4"
+    },
+    {
+        "id": 5,
+        "nombre": "Juan",
+        "apellidos": "Pérez",
+        "email": "juan1@gmail.com",
+        "telefono": 123456789,
+        "direccion": "Calle Falsa 12 1A",
+        "fechaDeRegistro": "2023-01-01",
+        "usuario": "juanito4",
+        "contrasena": "clave4"
+    }
+]
