@@ -1,28 +1,14 @@
-/* Fuente de Google */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url(comunes.css);
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Roboto", sans-serif;
-    color: white;
-}
-
-body {
-    background-image: url("../img/fondoLogin.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .contenedor {
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 50px;
+    padding: 40px;
     border-radius: 10px;
     text-align: center;
 }
@@ -32,8 +18,18 @@ img {
     margin: 20px 0 10px 0;
 }
 
+.visible {
+    display: block;
+    color: rgb(255, 0, 0);
+}
+
+.oculto {
+    display: none;
+}
+
 input,
-label {
+label,
+p {
     text-align: left;
     margin: 5px 0;
 }
@@ -57,21 +53,19 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 button:hover {
     background-color: #d65600;
 }
 
-
-
-.register-link a {
+a {
     color: #ff6600;
     text-decoration: none;
 }
 
-.register-link a:hover {
+a:hover {
     color: #e65c00;
     text-decoration: underline;
 }
