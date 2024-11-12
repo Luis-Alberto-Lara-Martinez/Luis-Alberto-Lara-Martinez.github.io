@@ -4,16 +4,25 @@ class Tienda {
         this.listaProductos = listaProductos;
         this.listaCompras = listaCompras;
     }
+
     alta(lista, objeto) {
         lista.push(objeto);
     }
-    modificar(){
 
+    modificar(lista, id, nuevosDatos) {
+        const index = lista.findIndex(item => item.id === id);
+        if (index !== -1) {
+            lista[index] = { ...lista[index], ...nuevosDatos };
+            return true; // Modificación exitosa
+        }
+        return false; // No se encontró el elemento con el ID proporcionado
     }
-    eliminar(){
 
+    eliminar(lista, id) {
+        return lista.filter(obj=>obj.id!=id);
     }
-    consultar(lista, id){
-        lista.find()
+
+    consultar(lista, id) {
+        return lista.find(obj => obj.id == id);
     }
 }
