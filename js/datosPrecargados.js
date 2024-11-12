@@ -18,3 +18,5 @@ async function cargarCompras() {
     let lista = await fetch("../json/compras.json");
     listaCompras = await lista.json();
 }
+
+let cantidadCesta = 0;

@@ -1,91 +1,39 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Tovi - Todo Videojuegos</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="inicio.html"></a>Inicio</li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-        </ul>
-    </nav>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú de Navegación Fijo</title>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/comunes.css">
     <link rel="stylesheet" href="../css/inicio.css">
     <script src="../js/inicio.js"></script>
-    <style>
-        /* Estilos básicos para el menú de navegación */
-        nav {
-            background-color: #333;
-            color: white;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-        }
-
-        nav ul li a:hover {
-            background-color: #575757;
-        }
-
-        /* Asegura que el contenido no quede oculto detrás del menú fijo */
-        body {
-            padding-top: 60px; /* Ajusta este valor según la altura del menú */
-        }
-    </style>
 </head>
+
 <body>
+
     <nav>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="clientes.html">Clientes</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="compras.html">Compras</a></li>
-            <li><a href="reportes.html">Reportes</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="acerca.html">Acerca de</a></li>
+            <li><a href="../html/inicio.html">Inicio</a></li>
+            <li><a href="../html/productosPS5.html">Productos PS4</a></li>
+            <li><a href="../html/productosPS5.html">Productos PS5</a></li>
+            <li><a href="../html/historialCompras.html">Historial de compras</a></li>
+            <li><a href="../html/contacto.html">Contacto</a></li>
+            <li><a href="../html/modificarDatos.html">Datos personales</a></li>
+            <li><img src="../img/carrito.png">
+                <p>0</p>
+            </li>
         </ul>
     </nav>
-
-    <div id="content">
-        <h1>Bienvenido a Nuestra Web</h1>
-        <p>Esta es la página de inicio.</p>
+    <div>
+        <h1>Bienvenido a Todo Videojuegos</h1>
+        <p>Aquí os dejamos un pequeño juego</p>
+        <p>Cada vez que pulses el logo, este cambia de posición 3 veces en 3 segundos</p>
+        <div>
+            <img src="../img/favicon.png" alt="Imagen de Ejemplo">
+        </div>
     </div>
 </body>
-</html>
 
+</html>

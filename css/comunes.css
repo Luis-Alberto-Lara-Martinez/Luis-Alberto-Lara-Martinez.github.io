@@ -9,13 +9,47 @@
 }
 
 body {
-    background-image: url("../img/fondo.png");
+    background-image: url("../img/fondo2.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
 }
 
+body>:not(nav) {
+    margin: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    background-image: linear-gradient(blue, purple);
+}
+
 nav>ul {
+    margin: 0 75px;
     list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav>ul>li>a {
+    padding: 10px;
+}
+
+nav>ul>li>a:hover {
+    background-color: green;
+    border-radius: 10px;
+}
+
+nav>ul>li>img {
+    width: 30px;
+    display: inline-block;
+}
+
+nav>ul>li>p {
+    text-align: right;
 }
