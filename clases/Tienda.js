@@ -19,7 +19,7 @@ class Tienda {
     }
 
     eliminar(lista, id) {
-        return lista.filter(obj=>obj.id!=id);
+        return lista.filter(obj => obj.id != id);
     }
 
     consultar(lista, id) {

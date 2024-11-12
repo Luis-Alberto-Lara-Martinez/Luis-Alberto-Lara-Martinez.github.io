@@ -9,11 +9,10 @@
 }
 
 body {
-    background-image: url("../img/fondo2.png");
+    background-image: url("../img/fondo.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
 }
 
 body>:not(nav) {

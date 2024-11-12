@@ -11,15 +11,34 @@ function comprobarExistenciaUsuario() {
         }
     });
 
-    if (existeUsuario) {
-        document.forms[0].submit();
+    if (!existeUsuario) {
+        [...document.getElementsByClassName("oculto")].setAttribute("class", "visible");
     } else {
-        document.getElementsByClassName("oculto")[0].setAttribute("class", "visible");
+        document.forms[0].submit();
     }
 }
 
 function validacionNuevoUsuario() {
+    let hayError = false;
+    let listaParrafosOcultos = [...document.getElementsByClassName("oculto")];
+    let listaParrafosVisibles = [...document.getElementsByClassName("visible")];
 
+    if (document.getElementById("nombre").value.trim() == "") {
+        let errorNombre = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Obligatorio");
+        if (errorNombre) {
+            errorNombre.setAttribute("class", "visible");
+        } else {
+            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "Obligatorio").setAttribute("class", "oculto");
+        }
+        hayError = true;
+    }else{
+        
+    }
+
+    if (!hayError) {
+        localStorage.setItem("usuarioID", document.getElementById("usuario").value);
+        document.forms[0].submit();
+    }
 }
 
 function crearNuevoUsuario() {
@@ -52,15 +71,25 @@ function crearNuevoUsuario() {
     inputNombre.id = "nombre";
     formulario.appendChild(inputNombre);
 
-    let labelApellidos = document.createElement("label");
-    labelApellidos.htmlFor = "apellidos";
-    labelApellidos.innerHTML = "Apellidos";
-    formulario.appendChild(labelApellidos);
+    let parrafoError = document.createElement("p");
+    parrafoError.innerHTML = "Obligatorio";
+    parrafoError.className = "oculto";
+    formulario.appendChild(parrafoError);
 
-    let inputApellidos = document.createElement("input");
-    inputApellidos.type = "text";
-    inputApellidos.id = "apellidos";
-    formulario.appendChild(inputApellidos);
+    let labelEdad = document.createElement("label");
+    labelEdad.htmlFor = "edad";
+    labelEdad.innerHTML = "Edad";
+    formulario.appendChild(labelEdad);
+
+    let inputEdad = document.createElement("input");
+    inputEdad.type = "number";
+    inputEdad.id = "edad";
+    formulario.appendChild(inputEdad);
+
+    parrafoError = document.createElement("p");
+    parrafoError.innerHTML = "Prohibido menores (+18)";
+    parrafoError.className = "oculto";
+    formulario.appendChild(parrafoError);
 
     let labelEmail = document.createElement("label");
     labelEmail.htmlFor = "email";
@@ -71,6 +100,11 @@ function crearNuevoUsuario() {
     inputEmail.type = "email";
     inputEmail.id = "email";
     formulario.appendChild(inputEmail);
+
+    parrafoError = document.createElement("p");
+    parrafoError.innerHTML = "Formato inválido";
+    parrafoError.className = "oculto";
+    formulario.appendChild(parrafoError);
 
     let labelTelefono = document.createElement("label");
     labelTelefono.htmlFor = "telefono";
@@ -111,11 +145,6 @@ function crearNuevoUsuario() {
     inputContrasena.type = "password";
     inputContrasena.id = "contrasena";
     formulario.appendChild(inputContrasena);
-
-    let parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Error, usuario y/o contraseña no válidos";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
 
     let botonEntrar = document.createElement("button");
     botonEntrar.type = "button";
