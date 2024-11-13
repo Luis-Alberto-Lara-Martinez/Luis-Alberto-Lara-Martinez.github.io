@@ -1,21 +1,8 @@
 let logo;
 let contenedor;
-let contador = 0;
-
-function moverLogo() {
-    let maxX = parseInt(contenedor.ClientWird- parseInt(logo.style.width.replace("px", "")));
-    let maxY = parseInt(contenedor.style.height.replace("px", "")) - parseInt(logo.style.height.replace("px", ""));
-
-    let posicionAleatoriaX = parseInt(Math.random() * maxX);
-    let posicionAleatoriaY = parseInt(Math.random() * maxY);
-
-    logo.style.left = `${posicionAleatoriaX}px`;
-    logo.style.top = `${posicionAleatoriaY}px`;
-}
 
 function cargarAnimacion(veces, duracion) {
-   
-
+    let contador = 0;
     let animacion = setInterval(() => {
         if (contador < veces) {
             moverLogo();
@@ -27,8 +14,21 @@ function cargarAnimacion(veces, duracion) {
         }
     }, (duracion / veces));
 }
+
+function moverLogo() {
+    let maxX = contenedor.clientWidth - logo.clientWidth;
+    let maxY = contenedor.clientHeight - logo.clientHeight;
+
+    let posicionAleatoriaX = parseInt(Math.random() * maxX);
+    let posicionAleatoriaY = parseInt(Math.random() * maxY);
+
+    logo.style.left = `${posicionAleatoriaX}px`;
+    logo.style.top = `${posicionAleatoriaY}px`;
+}
+
 onload = () => {
     logo = document.images[1];
     contenedor = document.querySelectorAll("div")[1];
-    logo.addEventListener("click", () => { cargarAnimacion(3, 3000) });
+    logo.addEventListener("click", () => { cargarAnimacion(3, 3000); });
+    cargarCantidadEstiloCarrito();
 }

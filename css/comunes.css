@@ -13,6 +13,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 
 body>:not(nav) {
@@ -28,7 +29,8 @@ nav {
 }
 
 nav>ul {
-    margin: 0 75px;
+    margin: 0 50px;
+    padding: 10px 0;
     list-style-type: none;
     display: flex;
     justify-content: space-between;
@@ -46,7 +48,6 @@ nav>ul>li>a:hover {
 
 nav>ul>li>img {
     width: 30px;
-    display: inline-block;
 }
 
 nav>ul>li>p {

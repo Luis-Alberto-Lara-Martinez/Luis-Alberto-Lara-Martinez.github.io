@@ -12,7 +12,9 @@ function comprobarExistenciaUsuario() {
     });
 
     if (!existeUsuario) {
-        [...document.getElementsByClassName("oculto")].setAttribute("class", "visible");
+        if (document.getElementsByClassName("oculto").length > 0) {
+            document.getElementsByClassName("oculto")[0].setAttribute("class", "visible");
+        }
     } else {
         document.forms[0].submit();
     }
