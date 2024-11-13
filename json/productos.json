@@ -1,27 +1,27 @@
 [
     {
         "id": 1,
-        "nombre": "The Legend of Zelda: Breath of the Wild",
-        "descripcion": "Un juego de acción y aventuras en un mundo abierto donde los jugadores pueden explorar el reino de Hyrule.",
-        "precio": 59.99,
-        "stock": 20,
-        "categoria": "Aventura"
+        "nombre": "Dragon Ball: Sparking! Zero",
+        "descripcion": "Dragon Ball: Sparking! Zero es un emocionante juego de lucha en 3D que te permite revivir épicas batallas de la serie Dragon Ball con 182 personajes jugables, nuevos modos de juego y escenarios interactivos que reaccionan a cada movimiento. ¡Prepárate para una experiencia de combate intensa y visualmente impresionante!",
+        "precio": 70,
+        "categoria": "Lucha",
+        "imagen":"../dragonBall.pn",,,,,,,,,
     },
     {
         "id": 2,
-        "nombre": "Super Mario Odyssey",
-        "descripcion": "Un juego de plataformas en 3D donde Mario viaja a través de diversos mundos para rescatar a la Princesa Peach de Bowser.",
-        "precio": 49.99,
-        "stock": 15,
-        "categoria": "Plataformas"
+        "nombre": "EA Sports FC 25",
+        "descripcion": "EA Sports FC 25 es el último lanzamiento de la franquicia de fútbol de EA Sports, ofreciendo una experiencia de juego mejorada con nuevos modos, gráficos realistas y una IA avanzada para una estrategia más táctica y dinámica en el campo.",
+        "precio": 75,
+        "categoria": "Deporte",
+        "imagen":"../dragonBall.pn",,,,,,,,,,,,,,,,
     },
     {
         "id": 3,
-        "nombre": "Animal Crossing: New Horizons",
-        "descripcion": "Un juego de simulación de vida donde los jugadores pueden crear su propia isla paradisíaca.",
-        "precio": 59.99,
-        "stock": 25,
-        "categoria": "Simulación"
+        "nombre": "Assassin's Creed: The Ezio Collection",
+        "descripcion": "Assassin's Creed: The Ezio Collection reúne las aclamadas aventuras de Ezio Auditore da Firenze, ofreciendo una experiencia remasterizada en alta definición de \"Assassin's Creed II\", \"Assassin's Creed Brotherhood\" y \"Assassin's Creed Revelations\", con todos los DLCs incluidos. Vive la épica historia de venganza y redención en la Italia renacentista.",
+        "precio": 20,
+        "categoria": "Aventura",
+        "imagen":"",,,,,,,,,,,,,,,,,,,,,,,,
     },
     {
         "id": 4,
@@ -38,45 +38,5 @@
         "precio": 59.99,
         "stock": 10,
         "categoria": "Carreras"
-    },
-    {
-        "id": 6,
-        "nombre": "Minecraft",
-        "descripcion": "Un juego de construcción y supervivencia donde los jugadores pueden explorar, construir y sobrevivir en un mundo generado por procedimientos.",
-        "precio": 29.99,
-        "stock": 50,
-        "categoria": "Aventura"
-    },
-    {
-        "id": 7,
-        "nombre": "Fortnite",
-        "descripcion": "Un juego de batalla real y construcción donde los jugadores compiten para ser el último en pie.",
-        "precio": 0.00,
-        "stock": 100,
-        "categoria": "Acción"
-    },
-    {
-        "id": 8,
-        "nombre": "Pokémon Sword",
-        "descripcion": "Un juego de rol donde los jugadores capturan y entrenan Pokémon para convertirse en el campeón de la región de Galar.",
-        "precio": 59.99,
-        "stock": 20,
-        "categoria": "Rol"
-    },
-    {
-        "id": 9,
-        "nombre": "The Witcher 3: Wild Hunt",
-        "descripcion": "Un juego de rol y acción en un mundo abierto donde los jugadores asumen el papel de Geralt de Rivia, un cazador de monstruos.",
-        "precio": 39.99,
-        "stock": 15,
-        "categoria": "Rol"
-    },
-    {
-        "id": 10,
-        "nombre": "Cyberpunk 2077",
-        "descripcion": "Un juego de rol y acción en un futuro distópico, con un mundo abierto y una narrativa inmersiva.",
-        "precio": 59.99,
-        "stock": 5,
-        "categoria": "Acción"
     }
 ]

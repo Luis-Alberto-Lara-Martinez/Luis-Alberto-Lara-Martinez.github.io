@@ -2,11 +2,11 @@
     {
         "id": 1,
         "idCliente": 1,
-        "productos": [
+        "listaProductos": [
             {
                 "idProducto": 1,
-                "cantidad": 1,
-                "precio": 59.99
+                "cantidad": 2,
+                "precio": 119.98
             },
             {
                 "idProducto": 2,
@@ -14,13 +14,13 @@
                 "precio": 49.99
             }
         ],
-        "fechaCompra": "2023-01-15",
-        "totalCompra": 109.98
+        "fechaCompra": "15-2-2023",
+        "totalCompra": 169.97
     },
     {
         "id": 2,
         "idCliente": 2,
-        "productos": [
+        "listaProductos": [
             {
                 "idProducto": 3,
                 "cantidad": 2,
@@ -38,7 +38,7 @@
     {
         "id": 3,
         "idCliente": 3,
-        "productos": [
+        "listaProductos": [
             {
                 "idProducto": 5,
                 "cantidad": 1,
@@ -50,43 +50,15 @@
     },
     {
         "id": 4,
-        "idCliente": 4,
-        "productos": [
+        "idCliente": 1,
+        "listaProductos": [
             {
-                "idProducto": 6,
-                "cantidad": 1,
-                "precio": 29.99
-            },
-            {
-                "idProducto": 7,
-                "cantidad": 1,
-                "precio": 0.00
+                "idProducto": 2,
+                "cantidad": 3,
+                "precio": 149.97
             }
         ],
         "fechaCompra": "2023-02-10",
-        "totalCompra": 29.99
-    },
-    {
-        "id": 5,
-        "idCliente": 5,
-        "productos": [
-            {
-                "idProducto": 8,
-                "cantidad": 1,
-                "precio": 59.99
-            },
-            {
-                "idProducto": 9,
-                "cantidad": 1,
-                "precio": 39.99
-            },
-            {
-                "idProducto": 10,
-                "cantidad": 1,
-                "precio": 59.99
-            }
-        ],
-        "fechaCompra": "2023-02-15",
-        "totalCompra": 159.97
+        "totalCompra": 149.97
     }
 ]

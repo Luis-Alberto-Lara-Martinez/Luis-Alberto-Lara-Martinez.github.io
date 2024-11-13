@@ -2,55 +2,31 @@
     {
         "id": 1,
         "nombre": "Juan",
-        "email": "juan1@gmail.com",
+        "edad": 30,
+        "email": "juan@gmail.com",
         "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
+        "direccion": "Calle Falsa 1 1A",
         "usuario": "juanito1",
-        "contrasena": "clave1",
-        "edad": 30
+        "contrasena": "clave1"
     },
     {
         "id": 2,
-        "nombre": "Juan",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "fechaDeRegistro": "2023-01-01",
-        "usuario": "juanito2",
-        "contrasena": "clave2",
-        "edad": 45
+        "nombre": "Ana",
+        "edad": 45,
+        "email": "ana@gmail.com",
+        "telefono": 234567891,
+        "direccion": "Calle Falsa 2 2A",
+        "usuario": "ana2",
+        "contrasena": "clave2"
     },
     {
         "id": 3,
-        "nombre": "Juan",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "fechaDeRegistro": "2023-01-01",
-        "usuario": "juanito3",
-        "contrasena": "clave3",
-        "edad": 28
-    },
-    {
-        "id": 4,
-        "nombre": "Juan",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "fechaDeRegistro": "2023-01-01",
-        "usuario": "juanito4",
-        "contrasena": "clave4",
-        "edad": 22
-    },
-    {
-        "id": 5,
-        "nombre": "Juan",
-        "email": "juan1@gmail.com",
-        "telefono": 123456789,
-        "direccion": "Calle Falsa 12 1A",
-        "fechaDeRegistro": "2023-01-01",
-        "usuario": "juanito4",
-        "contrasena": "clave4",
-        "edad": 35
+        "nombre": "Pedro",
+        "edad": 28,
+        "email": "pedro@gmail.com",
+        "telefono": 345678912,
+        "direccion": "Calle Falsa 3 3A",
+        "usuario": "pedro3",
+        "contrasena": "clave3"
     }
 ]
