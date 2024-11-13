@@ -25,18 +25,17 @@
     },
     {
         "id": 4,
-        "nombre": "Splatoon 2",
-        "descripcion": "Un juego de disparos en tercera persona donde los jugadores controlan a los Inklings y compiten en batallas de pintura.",
-        "precio": 39.99,
-        "stock": 30,
-        "categoria": "Acción"
+        "nombre": "Marvel's Spider-Man",
+        "descripcion": "Marvel's Spider-Man es un juego de acción y aventura donde los jugadores se ponen en la piel de Peter Parker, balanceándose por una fiel recreación de Nueva York, combatiendo el crimen con habilidades acrobáticas y gadgets únicos. La narrativa inmersiva y los gráficos impresionantes capturan la esencia del superhéroe arácnido.",
+        "precio": 15,
+        "categoria": "Aventura",
+        "imagen":"",,,,,,,,,,,,,,,
     },
     {
         "id": 5,
-        "nombre": "Mario Kart 8 Deluxe",
-        "descripcion": "Un juego de carreras con personajes del universo de Mario, que incluye modos multijugador tanto en línea como local.",
-        "precio": 59.99,
-        "stock": 10,
-        "categoria": "Carreras"
+        "nombre": "God of War",
+        "descripcion": "God of War (2018) es un juego de acción y aventura que sigue a Kratos y su hijo Atreus en un épico viaje por los reinos nórdicos. Con combates intensos, una narrativa profunda y hermosos gráficos, redefine la serie con un enfoque más maduro y emocional.",
+        "precio": 25,
+        "categoria": "Aventura"
     }
 ]
