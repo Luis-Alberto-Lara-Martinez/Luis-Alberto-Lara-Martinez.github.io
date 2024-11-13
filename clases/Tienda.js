@@ -5,17 +5,17 @@ class Tienda {
         this.listaCompras = listaCompras;
     }
 
-    alta(lista, objeto) {
-        lista.push(objeto);
+    altaCliente(lista, nuevoCliente) {
+        lista.push(nuevoCliente);
     }
 
-    modificar(lista, id, nuevosDatos) {
+    modificarCliente(lista, id, nuevosDatos) {
         const index = lista.findIndex(item => item.id === id);
         if (index !== -1) {
             lista[index] = { ...lista[index], ...nuevosDatos };
-            return true; // Modificación exitosa
+            return true;
         }
-        return false; // No se encontró el elemento con el ID proporcionado
+        return false;
     }
 
     eliminar(lista, id) {
