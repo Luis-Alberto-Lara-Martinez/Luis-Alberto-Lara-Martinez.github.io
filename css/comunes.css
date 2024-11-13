@@ -50,5 +50,5 @@ nav>ul>li>img {
 }
 
 nav>ul>li>p {
-    text-align: right;
+    display: inline-block;
 }
