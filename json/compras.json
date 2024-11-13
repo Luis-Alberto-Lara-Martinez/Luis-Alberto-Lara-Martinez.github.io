@@ -6,16 +6,16 @@
             {
                 "idProducto": 1,
                 "cantidad": 2,
-                "precio": 119.98
+                "precio": 140
             },
             {
                 "idProducto": 2,
                 "cantidad": 1,
-                "precio": 49.99
+                "precio": 75
             }
         ],
-        "fechaCompra": "15-2-2023",
-        "totalCompra": 169.97
+        "fechaCompra": "15-02-2024",
+        "totalCompra": 215
     },
     {
         "id": 2,
@@ -24,16 +24,16 @@
             {
                 "idProducto": 3,
                 "cantidad": 2,
-                "precio": 59.99
+                "precio": 40
             },
             {
                 "idProducto": 4,
                 "cantidad": 1,
-                "precio": 39.99
+                "precio": 15
             }
         ],
-        "fechaCompra": "2023-01-20",
-        "totalCompra": 159.97
+        "fechaCompra": "12-03-2023",
+        "totalCompra": 55
     },
     {
         "id": 3,
@@ -42,11 +42,11 @@
             {
                 "idProducto": 5,
                 "cantidad": 1,
-                "precio": 59.99
+                "precio": 25
             }
         ],
-        "fechaCompra": "2023-02-01",
-        "totalCompra": 59.99
+        "fechaCompra": "02-07-2024",
+        "totalCompra": 25
     },
     {
         "id": 4,
@@ -55,10 +55,10 @@
             {
                 "idProducto": 2,
                 "cantidad": 3,
-                "precio": 149.97
+                "precio": 225
             }
         ],
-        "fechaCompra": "2023-02-10",
-        "totalCompra": 149.97
+        "fechaCompra": "25-09-2024",
+        "totalCompra": 225
     }
 ]

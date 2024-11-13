@@ -48,8 +48,10 @@ nav>ul>li>a:hover {
 
 nav>ul>li>img {
     width: 30px;
+    cursor: pointer;
 }
 
 nav>ul>li>p {
     display: inline-block;
+    cursor: pointer;
 }

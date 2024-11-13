@@ -20,6 +20,10 @@ function comprobarExistenciaUsuario() {
     }
 }
 
+function comprobacionCampo(condicion, ) {
+    wrnirguiuingrniorg/*
+}
+
 function validacionNuevoUsuario() {
     let noHayError = true;
     let listaParrafosOcultos = [...document.getElementsByClassName("oculto")];
@@ -118,7 +122,9 @@ function validacionNuevoUsuario() {
     }
 
     if (noHayError) {
-        localStorage.setItem("usuarioID", "creado bien");
+        let clienteNuevo = new Cliente(id, nombre, edad, email, telefono, direccion, usuario, contrasena);
+        tienda.listaClientes.push(clienteNuevo);
+        localStorage.setItem("usuarioID", clienteNuevo.id);
         document.forms[0].submit();
     }
 }
@@ -332,5 +338,4 @@ onload = async () => {
     cargarFormulario();
     await cargarDatos();
     tienda = new Tienda(listaClientes, listaProductos, listaCompras);
-    console.log(tienda);
 }

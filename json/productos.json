@@ -5,7 +5,7 @@
         "descripcion": "Dragon Ball: Sparking! Zero es un emocionante juego de lucha en 3D que te permite revivir épicas batallas de la serie Dragon Ball con 182 personajes jugables, nuevos modos de juego y escenarios interactivos que reaccionan a cada movimiento. ¡Prepárate para una experiencia de combate intensa y visualmente impresionante!",
         "precio": 70,
         "categoria": "Lucha",
-        "imagen":"../dragonBall.pn",,,,,,,,,
+        "imagen": "../img/dragonBall.png"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "descripcion": "EA Sports FC 25 es el último lanzamiento de la franquicia de fútbol de EA Sports, ofreciendo una experiencia de juego mejorada con nuevos modos, gráficos realistas y una IA avanzada para una estrategia más táctica y dinámica en el campo.",
         "precio": 75,
         "categoria": "Deporte",
-        "imagen":"../dragonBall.pn",,,,,,,,,,,,,,,,
+        "imagen": "../img/fc25.png"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "descripcion": "Assassin's Creed: The Ezio Collection reúne las aclamadas aventuras de Ezio Auditore da Firenze, ofreciendo una experiencia remasterizada en alta definición de \"Assassin's Creed II\", \"Assassin's Creed Brotherhood\" y \"Assassin's Creed Revelations\", con todos los DLCs incluidos. Vive la épica historia de venganza y redención en la Italia renacentista.",
         "precio": 20,
         "categoria": "Aventura",
-        "imagen":"",,,,,,,,,,,,,,,,,,,,,,,,
+        "imagen": "../img/assasinsCreed.png"
     },
     {
         "id": 4,
@@ -29,13 +29,14 @@
         "descripcion": "Marvel's Spider-Man es un juego de acción y aventura donde los jugadores se ponen en la piel de Peter Parker, balanceándose por una fiel recreación de Nueva York, combatiendo el crimen con habilidades acrobáticas y gadgets únicos. La narrativa inmersiva y los gráficos impresionantes capturan la esencia del superhéroe arácnido.",
         "precio": 15,
         "categoria": "Aventura",
-        "imagen":"",,,,,,,,,,,,,,,
+        "imagen": "../img/spiderman.png"
     },
     {
         "id": 5,
         "nombre": "God of War",
         "descripcion": "God of War (2018) es un juego de acción y aventura que sigue a Kratos y su hijo Atreus en un épico viaje por los reinos nórdicos. Con combates intensos, una narrativa profunda y hermosos gráficos, redefine la serie con un enfoque más maduro y emocional.",
         "precio": 25,
-        "categoria": "Aventura"
+        "categoria": "Aventura",
+        "imagen": "../img/godOfWar.png"
     }
 ]

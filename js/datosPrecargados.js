@@ -18,7 +18,10 @@ async function cargarDatos() {
 }
 
 function cargarCantidadEstiloCarrito() {
-    document.getElementsByTagName("p")[0].innerHTML = `${cantidadCesta}`;
-    document.images[0].addEventListener("click", () => { location.href = "carrito.html" });
-    document.images[0].style.cursor = "pointer";
+    let parrafoCesta = document.getElementsByTagName("p")[0]
+    parrafoCesta.innerHTML = `${cantidadCesta}`;
+    parrafoCesta.addEventListener("click", () => { location.href = "carrito.html" });
+
+    let imagenCarrito = document.images[0];
+    imagenCarrito.addEventListener("click", () => { location.href = "carrito.html" });
 }
