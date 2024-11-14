@@ -20,109 +20,61 @@ function comprobarExistenciaUsuario() {
     }
 }
 
-function comprobacionCampo(condicion, ) {
-    wrnirguiuingrniorg/*
+function comprobacionCampo(condicion, listaParrafosOcultos, listaParrafosVisibles, parrafoErrorHTML) {
+    let parrafoErrorOculto = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == parrafoErrorHTML);
+    let noHayError = true;
+    if (condicion) {
+        noHayError = false;
+        if (parrafoErrorOculto) {
+            parrafoErrorOculto.setAttribute("class", "visible");
+        }
+    } else {
+        if (!parrafoErrorOculto) {
+            let parrafoErrorVisible = listaParrafosVisibles.find(parrafo => parrafo.innerHTML == parrafoErrorHTML);
+            if (parrafoErrorVisible) {
+                parrafoErrorVisible.setAttribute("class", "oculto");
+            }
+        }
+    }
+    return noHayError;
 }
 
 function validacionNuevoUsuario() {
     let noHayError = true;
     let listaParrafosOcultos = [...document.getElementsByClassName("oculto")];
     let listaParrafosVisibles = [...document.getElementsByClassName("visible")];
-    let parrafoError;
+    let nombre = document.getElementById("nombre").value.trim();
+    let edad = document.getElementById("edad").value;
+    let email = document.getElementById("email").value;
+    let telefono = document.getElementById("telefono").value;
+    let direccion = document.getElementById("direccion").value;
+    let usuario = document.getElementById("usuario").value;
+    let contrasena = document.getElementById("contrasena").value;
 
-    if (document.getElementById("nombre").value.trim() == "") {
+    if (!comprobacionCampo(nombre == "", listaParrafosOcultos, listaParrafosVisibles, "Obligatorio")) {
         noHayError = false;
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Obligatorio");
-        if (parrafoError) {
-            parrafoError.setAttribute("class", "visible");
-        }
-    } else {
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Obligatorio");
-        if (!parrafoError) {
-            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "Obligatorio").setAttribute("class", "oculto");
-        }
     }
-
-    if (document.getElementById("edad").value < 18) {
+    if (!comprobacionCampo(!(/^[0-9]+$/.test(edad)) || parseInt(edad) < 18, listaParrafosOcultos, listaParrafosVisibles, "Prohibido menores (+18)")) {
         noHayError = false;
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Prohibido menores (+18)");
-        if (parrafoError) {
-            parrafoError.setAttribute("class", "visible");
-        }
-    } else {
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Prohibido menores (+18)");
-        if (!parrafoError) {
-            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "Prohibido menores (+18)").setAttribute("class", "oculto");
-        }
     }
-
-    if (!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("email").value))) {
+    if (!comprobacionCampo(!(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)), listaParrafosOcultos, listaParrafosVisibles, "Formato inválido")) {
         noHayError = false;
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Formato inválido");
-        if (parrafoError) {
-            parrafoError.setAttribute("class", "visible");
-        }
-    } else {
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Formato inválido");
-        if (!parrafoError) {
-            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "Formato inválido").setAttribute("class", "oculto");
-        }
     }
-
-    if (!(/^[0-9]{9}$/.test(document.getElementById("telefono").value))) {
+    if (!comprobacionCampo(!(/^[0-9]{9}$/.test(telefono)), listaParrafosOcultos, listaParrafosVisibles, "Ha de tener 9 números")) {
         noHayError = false;
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Mínimo 9 números");
-        if (parrafoError) {
-            parrafoError.setAttribute("class", "visible");
-        }
-    } else {
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Mínimo 9 números");
-        if (!parrafoError) {
-            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "Mínimo 9 números").setAttribute("class", "oculto");
-        }
     }
-
-    if (document.getElementById("direccion").value == "") {
+    if (!comprobacionCampo(direccion == "", listaParrafosOcultos, listaParrafosVisibles, "Dirección inválida")) {
         noHayError = false;
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Dirección inválida");
-        if (parrafoError) {
-            parrafoError.setAttribute("class", "visible");
-        }
-    } else {
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Dirección inválida");
-        if (!parrafoError) {
-            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "Dirección inválida").setAttribute("class", "oculto");
-        }
     }
-
-    if (!(/^[^\d].*/.test(document.getElementById("usuario").value))) {
+    if (!comprobacionCampo(!(/^[^\d].*/.test(usuario)), listaParrafosOcultos, listaParrafosVisibles, "No puede empezar por un número")) {
         noHayError = false;
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "No puede empezar por un número");
-        if (parrafoError) {
-            parrafoError.setAttribute("class", "visible");
-        }
-    } else {
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "No puede empezar por un número");
-        if (!parrafoError) {
-            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "No puede empezar por un número").setAttribute("class", "oculto");
-        }
     }
-
-    if (!(/^[^\d][\w\W]{4,}$/.test(document.getElementById("contrasena").value))) {
+    if (!comprobacionCampo(!(/^[^\d][\w\W]{3,}$/.test(contrasena)), listaParrafosOcultos, listaParrafosVisibles, "Mínimo 4 caracteres y no puede empezar por un número")) {
         noHayError = false;
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Mínimo 4 caracteres y no puede empezar por un número");
-        if (parrafoError) {
-            parrafoError.setAttribute("class", "visible");
-        }
-    } else {
-        parrafoError = listaParrafosOcultos.find(parrafo => parrafo.innerHTML == "Mínimo 4 caracteres y no puede empezar por un número");
-        if (!parrafoError) {
-            listaParrafosVisibles.find(parrafo => parrafo.innerHTML == "Mínimo 4 caracteres y no puede empezar por un número").setAttribute("class", "oculto");
-        }
     }
 
     if (noHayError) {
-        let clienteNuevo = new Cliente(id, nombre, edad, email, telefono, direccion, usuario, contrasena);
+        let clienteNuevo = new Cliente(tienda.listaClientes.length + 1, nombre, edad, email, telefono, direccion, usuario, contrasena);
         tienda.listaClientes.push(clienteNuevo);
         localStorage.setItem("usuarioID", clienteNuevo.id);
         document.forms[0].submit();
@@ -205,7 +157,7 @@ function crearNuevoUsuario() {
     formulario.appendChild(inputTelefono);
 
     parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Mínimo 9 números";
+    parrafoError.innerHTML = "Ha de tener 9 números";
     parrafoError.className = "oculto";
     formulario.appendChild(parrafoError);
 
