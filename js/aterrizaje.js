@@ -3,10 +3,10 @@ function comprobarExistenciaUsuario() {
     let contrasenaBuscada = document.forms[0].querySelectorAll("input")[1].value.trim();
 
     let existeUsuario = false;
-
-    listaClientes.forEach(cliente => {
+    let tienda = JSON.parse(localStorage.getItem("tienda"));
+    tienda.listaClientes.forEach(cliente => {
         if (cliente.usuario == usuarioBuscado && cliente.contrasena == contrasenaBuscada) {
-            localStorage.setItem("usuarioID", cliente.id);
+            localStorage.setItem("usuario", JSON.stringify(cliente));
             existeUsuario = true;
         }
     });
@@ -45,11 +45,11 @@ function validacionNuevoUsuario() {
     let listaParrafosVisibles = [...document.getElementsByClassName("visible")];
     let nombre = document.getElementById("nombre").value.trim();
     let edad = document.getElementById("edad").value;
-    let email = document.getElementById("email").value;
-    let telefono = document.getElementById("telefono").value;
-    let direccion = document.getElementById("direccion").value;
-    let usuario = document.getElementById("usuario").value;
-    let contrasena = document.getElementById("contrasena").value;
+    let email = document.getElementById("email").value.trim();
+    let telefono = document.getElementById("telefono").value.trim();
+    let direccion = document.getElementById("direccion").value.trim();
+    let usuario = document.getElementById("usuario").value.trim();
+    let contrasena = document.getElementById("contrasena").value.trim();
 
     if (!comprobacionCampo(nombre == "", listaParrafosOcultos, listaParrafosVisibles, "Obligatorio")) {
         noHayError = false;
@@ -74,11 +74,35 @@ function validacionNuevoUsuario() {
     }
 
     if (noHayError) {
-        let clienteNuevo = new Cliente(tienda.listaClientes.length + 1, nombre, edad, email, telefono, direccion, usuario, contrasena);
-        tienda.listaClientes.push(clienteNuevo);
-        localStorage.setItem("usuarioID", clienteNuevo.id);
+        let tienda = JSON.parse(localStorage.getItem("tienda"));
+        let nuevoCliente = new Cliente(tienda.listaClientes.length + 1, nombre, edad, email, telefono, direccion, usuario, contrasena);
+        let objetoTienda = new Tienda(tienda.listaClientes, tienda.listaProductos, tienda.listaCompras);
+
+        objetoTienda.alta(objetoTienda.listaClientes, nuevoCliente);
+
+        localStorage.setItem("tienda", JSON.stringify(objetoTienda));
+        localStorage.setItem("usuario", JSON.stringify(nuevoCliente));
         document.forms[0].submit();
     }
+}
+
+function crearLabelInput(formulario, id, contenidoHTML, tipoInput) {
+    let label = document.createElement("label");
+    label.htmlFor = id;
+    label.innerHTML = contenidoHTML;
+    formulario.appendChild(label);
+
+    let input = document.createElement("input");
+    input.type = tipoInput;
+    input.id = id;
+    formulario.appendChild(input);
+}
+
+function crearParrafoError(contenidoHTML) {
+    let parrafoError = document.createElement("p");
+    parrafoError.innerHTML = contenidoHTML;
+    parrafoError.className = "oculto";
+    return parrafoError;
 }
 
 function crearNuevoUsuario() {
@@ -101,110 +125,26 @@ function crearNuevoUsuario() {
     formulario.method = "get";
     contenedor.appendChild(formulario);
 
-    let labelNombre = document.createElement("label");
-    labelNombre.htmlFor = "nombre";
-    labelNombre.innerHTML = "Nombre";
-    formulario.appendChild(labelNombre);
+    crearLabelInput(formulario, "nombre", "Nombre", "text");
+    formulario.appendChild(crearParrafoError("Obligatorio"));
 
-    let inputNombre = document.createElement("input");
-    inputNombre.type = "text";
-    inputNombre.id = "nombre";
-    formulario.appendChild(inputNombre);
+    crearLabelInput(formulario, "edad", "Edad", "number");
+    formulario.appendChild(crearParrafoError("Prohibido menores (+18)"));
 
-    let parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Obligatorio";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
+    crearLabelInput(formulario, "email", "Email", "email");
+    formulario.appendChild(crearParrafoError("Formato inválido"));
 
-    let labelEdad = document.createElement("label");
-    labelEdad.htmlFor = "edad";
-    labelEdad.innerHTML = "Edad";
-    formulario.appendChild(labelEdad);
+    crearLabelInput(formulario, "telefono", "Teléfono", "tel");
+    formulario.appendChild(crearParrafoError("Ha de tener 9 números"));
 
-    let inputEdad = document.createElement("input");
-    inputEdad.type = "number";
-    inputEdad.id = "edad";
-    formulario.appendChild(inputEdad);
+    crearLabelInput(formulario, "direccion", "Dirección", "text");
+    formulario.appendChild(crearParrafoError("Dirección inválida"));
 
-    parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Prohibido menores (+18)";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
+    crearLabelInput(formulario, "usuario", "Usuario", "text");
+    formulario.appendChild(crearParrafoError("No puede empezar por un número"));
 
-    let labelEmail = document.createElement("label");
-    labelEmail.htmlFor = "email";
-    labelEmail.innerHTML = "Email";
-    formulario.appendChild(labelEmail);
-
-    let inputEmail = document.createElement("input");
-    inputEmail.type = "email";
-    inputEmail.id = "email";
-    formulario.appendChild(inputEmail);
-
-    parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Formato inválido";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
-
-    let labelTelefono = document.createElement("label");
-    labelTelefono.htmlFor = "telefono";
-    labelTelefono.innerHTML = "Teléfono";
-    formulario.appendChild(labelTelefono);
-
-    let inputTelefono = document.createElement("input");
-    inputTelefono.type = "tel";
-    inputTelefono.id = "telefono";
-    formulario.appendChild(inputTelefono);
-
-    parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Ha de tener 9 números";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
-
-    let labelDireccion = document.createElement("label");
-    labelDireccion.htmlFor = "direccion";
-    labelDireccion.innerHTML = "Dirección";
-    formulario.appendChild(labelDireccion);
-
-    let inputDireccion = document.createElement("input");
-    inputDireccion.type = "text";
-    inputDireccion.id = "direccion";
-    formulario.appendChild(inputDireccion);
-
-    parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Dirección inválida";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
-
-    let labelUsuario = document.createElement("label");
-    labelUsuario.htmlFor = "usuario";
-    labelUsuario.innerHTML = "Usuario";
-    formulario.appendChild(labelUsuario);
-
-    let inputUsuario = document.createElement("input");
-    inputUsuario.type = "text";
-    inputUsuario.id = "usuario";
-    formulario.appendChild(inputUsuario);
-
-    parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "No puede empezar por un número";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
-
-    let labelContrasena = document.createElement("label");
-    labelContrasena.htmlFor = "contrasena";
-    labelContrasena.innerHTML = "Contraseña";
-    formulario.appendChild(labelContrasena);
-
-    let inputContrasena = document.createElement("input");
-    inputContrasena.type = "password";
-    inputContrasena.id = "contrasena";
-    formulario.appendChild(inputContrasena);
-
-    parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Mínimo 4 caracteres y no puede empezar por un número";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
+    crearLabelInput(formulario, "contrasena", "Contraseña", "password");
+    formulario.appendChild(crearParrafoError("Mínimo 4 caracteres y no puede empezar por un número"));
 
     let botonEntrar = document.createElement("button");
     botonEntrar.type = "button";
@@ -243,30 +183,9 @@ function cargarFormulario() {
     formulario.method = "get";
     contenedor.appendChild(formulario);
 
-    let labelNombre = document.createElement("label");
-    labelNombre.htmlFor = "usuario";
-    labelNombre.innerHTML = "Usuario";
-    formulario.appendChild(labelNombre);
-
-    let inputNombre = document.createElement("input");
-    inputNombre.type = "text";
-    inputNombre.id = "usuario";
-    formulario.appendChild(inputNombre);
-
-    let labelContrasena = document.createElement("label");
-    labelContrasena.htmlFor = "contrasena";
-    labelContrasena.innerHTML = "Contraseña";
-    formulario.appendChild(labelContrasena);
-
-    let inputContrasena = document.createElement("input");
-    inputContrasena.type = "password";
-    inputContrasena.id = "contrasena";
-    formulario.appendChild(inputContrasena);
-
-    let parrafoError = document.createElement("p");
-    parrafoError.innerHTML = "Error, usuario y/o contraseña no válidos";
-    parrafoError.className = "oculto";
-    formulario.appendChild(parrafoError);
+    crearLabelInput(formulario, "usuario", "Usuario", "text");
+    crearLabelInput(formulario, "contrasena", "Contraseña", "password");
+    formulario.appendChild(crearParrafoError("Error, usuario y/o contraseña no válidos"));
 
     let botonEntrar = document.createElement("button");
     botonEntrar.type = "button";
@@ -284,10 +203,11 @@ function cargarFormulario() {
     enlaceNuevoRegistro.addEventListener("click", crearNuevoUsuario);
     parrafoNoRegistrado.appendChild(enlaceNuevoRegistro);
 }
-
 onload = async () => {
-    localStorage.clear();
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("carrito");
+    if (!localStorage.getItem("tienda") || !localStorage.getItem("cantidadCarrito")) {
+        await cargarTienda();
+    }
     cargarFormulario();
-    await cargarDatos();
-    tienda = new Tienda(listaClientes, listaProductos, listaCompras);
 }

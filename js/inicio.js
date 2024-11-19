@@ -9,26 +9,26 @@ function cargarAnimacion(veces, duracion) {
             contador++;
         } else {
             clearInterval(animacion);
-            logo.style.top = "";
-            logo.style.left = "";
+            logo.css({ top: "", left: "" });
         }
     }, (duracion / veces));
 }
 
 function moverLogo() {
-    let maxX = contenedor.clientWidth - logo.clientWidth;
-    let maxY = contenedor.clientHeight - logo.clientHeight;
-
-    let posicionAleatoriaX = parseInt(Math.random() * maxX);
-    let posicionAleatoriaY = parseInt(Math.random() * maxY);
-
-    logo.style.left = `${posicionAleatoriaX}px`;
-    logo.style.top = `${posicionAleatoriaY}px`;
+    let maxX = contenedor.width() - logo.width();
+    let maxY = contenedor.height() - logo.height();
+    let posicionAleatoriaX = Math.random() * maxX;
+    let posicionAleatoriaY = Math.random() * maxY;
+    logo.css({ left: `${posicionAleatoriaX}px`, top: `${posicionAleatoriaY}px` });
 }
 
-onload = () => {
-    logo = document.images[1];
-    contenedor = document.querySelectorAll("div")[1];
-    logo.addEventListener("click", () => { cargarAnimacion(3, 3000); });
-    cargarCantidadEstiloCarrito();
-}
+$(document).ready(() => {
+    HainiciadoSesion();
+    cargarMenu();
+    cargarCantidadYEstiloCarrito();
+    logo = $("img").eq(1);
+    contenedor = $("div").eq(1);
+    logo.on("click", () => {
+        cargarAnimacion(3, 3000);
+    });
+});

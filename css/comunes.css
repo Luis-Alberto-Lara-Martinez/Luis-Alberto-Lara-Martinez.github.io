@@ -55,3 +55,6 @@ nav>ul>li>p {
     display: inline-block;
     cursor: pointer;
 }
+input, select, option{
+    color: black;
+}

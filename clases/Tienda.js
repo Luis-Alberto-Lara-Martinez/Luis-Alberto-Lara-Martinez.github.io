@@ -5,24 +5,23 @@ class Tienda {
         this.listaCompras = listaCompras;
     }
 
-    altaCliente(lista, nuevoCliente) {
-        lista.push(nuevoCliente);
+    alta(lista, nuevoElemento) {
+        lista.push(nuevoElemento);
     }
 
-    modificarCliente(lista, id, nuevosDatos) {
-        const index = lista.findIndex(item => item.id === id);
-        if (index !== -1) {
-            lista[index] = { ...lista[index], ...nuevosDatos };
-            return true;
-        }
-        return false;
+    modificarProducto(idProdcuto, propiedad, valor) {
+        this.listaProductos.find(producto => producto.id == idProdcuto).propiedad = valor;
     }
 
-    eliminar(lista, id) {
-        return lista.filter(obj => obj.id != id);
+    getCliente(clienteAEncontrar) {
+        return this.listaClientes.find(cliente => cliente.id == clienteAEncontrar.id);
     }
 
-    consultar(lista, id) {
-        return lista.find(obj => obj.id == id);
+    getComprasCliente(idClienteABuscar) {
+        return this.listaCompras.filter(compra => compra.idCliente == idClienteABuscar);
+    }
+
+    borrarCompraCliente(idCompra) {
+        this.listaCompras = this.listaCompras.filter(compra => compra.id != idCompra);
     }
 }
